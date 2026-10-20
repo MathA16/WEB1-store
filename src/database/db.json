@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nome": "Mouse gamer",
+        "preco": 99.90,
+        "categoria": "informatica"
+    },
+    {
+        "id": 2,
+        "nome": "Teclado gamer",
+        "preco": 199.90,
+        "categoria": "informatica"
+    },
+    {
+        "id": 3,
+        "nome": "Geladeira",
+        "preco": 2999.90,
+        "categoria": "eletrodomesticos"
+    }
+]

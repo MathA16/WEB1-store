@@ -1,6 +1,6 @@
 import express from 'express'
 import 'dotenv/config';
-import { buscarProdutos, buscarProdutoUnico } from './src/controllers/produtoController.js';
+import produtosRouter from './src/routes/produtoRoutes.js';
 
 const PORTA = process.env.PORT;
 
@@ -12,9 +12,7 @@ app.get('/', (req, res) => {
   res.send('Hello World')
 });
 
-app.get("/produtos", buscarProdutos);
-
-app.get("/produtos/:id", buscarProdutoUnico);
+app.use('/produtos', produtosRouter);
 
 app.listen(PORTA, () => {
   console.log(`Server is running on http://localhost:${PORTA}`)

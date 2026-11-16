@@ -3,7 +3,7 @@ import { buscarProdutoEspecifico } from '../repositories/produtoRepository.js';
 
 async function buscarProdutos(req, res) {
     const produtos = await buscarTodosProdutos();
-    res.json(produtos);
+    return res.json(produtos);
 };
 async function buscarProdutoUnico(req, res) {
     const produtos = await buscarProdutoEspecifico();
@@ -15,13 +15,13 @@ async function buscarProdutoUnico(req, res) {
         res.status(400).send("Parametro id inválido");
     }
 
-    const produto = produtos.find(produto => produto.id === idConvertido);
+    const produto = await buscarProdutoEspecifico(idConvertido);
 
     if (!produto) {
         res.status(404).json({ erro: "Produto não encontrado" });
     }
 
-    res.json(produto);
+    return res.json(produto);
 }
 
 export {

@@ -16,13 +16,29 @@ async function buscarProdutoEspecifico(id) {
     const produtos = JSON.parse(conteudo);
     console.log("função buscarProdutoEspecifico executada com sucesso");
 
-
     const produto = produtos.find((p) => p.id === id);
 
     return produto;
 }
 
+async function cadastrarProduto(dadosProduto) {
+    const conteudo = await readFile(arquivo);
+    const produtos = JSON.parse(conteudo);
+
+    let novoId = 1;
+    
+    if(produtos.lenth > 0) {
+        novoId = Math.max(...produtos.map(p => p.id)) + 1;
+    }
+
+    const novoProduto = { ...dadosProduto, id: novoId };
+    produtos.push(novoProduto);
+
+    await writeFile(arquivo, JSON.stringify(produtos, null, 2), "utf-8");
+    return novoProduto;
+}
 export {
     buscarTodosProdutos,
-    buscarProdutoEspecifico
+    buscarProdutoEspecifico,
+    cadastrarProduto
 };

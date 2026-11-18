@@ -1,5 +1,6 @@
 import { buscarTodosProdutos } from '../repositories/produtoRepository.js';
 import { buscarProdutoEspecifico } from '../repositories/produtoRepository.js';
+import { cadastrarProduto } from '../repositories/produtoRepository.js';
 
 async function buscarProdutos(req, res) {
     const produtos = await buscarTodosProdutos();
@@ -24,7 +25,29 @@ async function buscarProdutoUnico(req, res) {
     return res.json(produto);
 }
 
+async function salvarProduto(req, res) {
+    const { nome, preco, categoria } = req.body;
+
+    if (typeof nome !== "string" || nome.trim() === ""||
+        typeof preco !== "number" || preco < 0 || 
+        typeof categoria !== "string" || categoria.trim() === "") {
+        return res.status(422).json({ erro: "Dados invalidos" });
+    }
+
+    const dadosProduto = {
+        nome: nome.trim(),
+        preco,
+        categoria: categoria.trim()
+    }
+
+    const produtoCriado = await cadastrarProduto(dadosProduto);
+
+    return res.status(201).json(produtoCriado);
+    
+}
+
 export {
     buscarProdutos,
-    buscarProdutoUnico
+    buscarProdutoUnico,
+    salvarProduto
 }

@@ -27,7 +27,7 @@ async function cadastrarProduto(dadosProduto) {
 
     let novoId = 1;
     
-    if(produtos.lenth > 0) {
+    if(produtos.length > 0) {
         novoId = Math.max(...produtos.map(p => p.id)) + 1;
     }
 

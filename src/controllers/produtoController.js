@@ -5,7 +5,8 @@ import { cadastrarProduto } from '../repositories/produtoRepository.js';
 async function buscarProdutos(req, res) {
     const produtos = await buscarTodosProdutos();
     return res.json(produtos);
-};
+}
+
 async function buscarProdutoUnico(req, res) {
     const produtos = await buscarProdutoEspecifico();
     const id = req.params.id;

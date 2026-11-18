@@ -1,20 +1,26 @@
 [
-    {
-        "id": 1,
-        "nome": "Mouse gamer",
-        "preco": 99.90,
-        "categoria": "informatica"
-    },
-    {
-        "id": 2,
-        "nome": "Teclado gamer",
-        "preco": 199.90,
-        "categoria": "informatica"
-    },
-    {
-        "id": 3,
-        "nome": "Geladeira",
-        "preco": 2999.90,
-        "categoria": "eletrodomesticos"
-    }
+  {
+    "id": 1,
+    "nome": "Mouse gamer",
+    "preco": 99.9,
+    "categoria": "informatica"
+  },
+  {
+    "id": 2,
+    "nome": "Teclado gamer",
+    "preco": 199.9,
+    "categoria": "informatica"
+  },
+  {
+    "id": 3,
+    "nome": "Geladeira",
+    "preco": 2999.9,
+    "categoria": "eletrodomesticos"
+  },
+  {
+    "nome": "ps1",
+    "preco": 250,
+    "categoria": "videogames",
+    "id": 4
+  }
 ]
